@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+    .signup-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    }
+    .signup-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .signup-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background: #333;
+        border: 1px solid #444;
+        color: white;
+        border-radius: 5px;
+    }
+    .signup-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0073b1;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .signup-container button:hover {
+        background-color: #005a8e;
+    }
+    .alt-login {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .alt-login a {
+        color: #0073b1;
+        text-decoration: none;
+    }
+    .alert {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .alert-success {
+        background-color: #28a745;
+        color: white;
+    }
+    .alert-error {
+        background-color: #dc3545;
+        color: white;
+    }
+    .alert-warning {
+        background-color: #ffc107;
+        color: black;
+    }
+</style>
+
+<div class="signup-container">
+    <h2>Sign Up</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('signup') }}" method="POST">
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <button type="submit">Join now</button>
+    </form>
+
+    <p class="alt-login">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+</div>
+
+{% endblock %}

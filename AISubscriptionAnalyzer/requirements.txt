@@ -1,0 +1,13 @@
+flask
+flask-sqlalchemy
+flask-login
+flask-bcrypt
+flask-mail
+python-dotenv
+pandas
+matplotlib
+pytesseract
+opencv-python-headless
+google-auth
+python-imap
+beautifulsoup4

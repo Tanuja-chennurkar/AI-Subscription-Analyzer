@@ -1,0 +1,53 @@
+:root {
+    --primary-blue: #2A5C8D;
+    --secondary-blue: #5B9BD5;
+    --light-gray: #F5F5F5;
+    --dark-gray: #444444;
+}
+
+body {
+    background-color: var(--light-gray);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: var(--primary-blue) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue) !important;
+    border: none;
+    padding: 0.75rem 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+}

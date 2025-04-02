@@ -1,0 +1,50 @@
+<div class="row">
+    <!-- Subscription Analysis -->
+    <div class="col-md-6">
+        <h3>Subscription Recommendations</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Cost</th>
+                    <th>Usage</th>
+                    <th>Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in subscriptions %}
+                <tr>
+                    <td>{{ sub.Platform }}</td>
+                    <td>₹{{ sub['Total (INR)'] }}</td>
+                    <td>{{ sub.Usage }} hours</td>
+                    <td class="
+                        {% if sub.Recommendation == 'Cancel' %}text-danger
+                        {% elif sub.Recommendation == 'Consider Downgrade' %}text-warning
+                        {% else %}text-success{% endif %}">
+                        {{ sub.Recommendation }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Visualization -->
+    <div class="col-md-6">
+        <h3>Usage Analysis</h3>
+        <img src="{{ plot_url }}" class="img-fluid" alt="Usage Chart">
+    </div>
+</div>
+
+<!-- Screen Time Section -->
+<div class="mt-4">
+    <h3>Screen Time Analysis</h3>
+    <ul class="list-group">
+        {% for app, time in screen_time.items() %}
+        <li class="list-group-item d-flex justify-content-between">
+            <span>{{ app }}</span>
+            <span>{{ time }} hours</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
