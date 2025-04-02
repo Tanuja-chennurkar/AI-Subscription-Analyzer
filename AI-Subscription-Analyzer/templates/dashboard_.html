@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ name }}!</h1>
+<p>This is your subscription dashboard.</p>
+<a href="{{ url_for('logout') }}">Logout</a>
+    <p>Here are your unused subscriptions:</p>
+
+    <ul>
+        {% for sub in unused_subscriptions %}
+            <li>{{ sub }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+<!--
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Your Subscription Analysis</h2>
+    <ul>
+        {% for sub in unused_subscriptions %}
+            <li>{{ sub }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+-->
